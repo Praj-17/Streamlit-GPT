@@ -1,47 +1,48 @@
-Introducing PlotGPT, a lightweight AI assistant to help you visualize your data.
+# Streamlit GPT
 
-![](src\assets\demo.gif)
+Introducing Streamlit GPT, Which creates Streamlit Dasboards for a Given csv File and user input in Natural Language. To create an intuitive dashboard.
 
-Built on top of langchain and openai
+## Setup and Installation
 
 
-Currently it will (most likely) only support plotting in matplotlib and seaborn
+Step:1 clone the Repository
 
-# Quickstart
-
-To get started, all you need to do is give PlotGPT a pandas dataframe to inspect.
-
-```python
-import seaborn as sns
-df = sns.load_dataset('iris')
-
-ai = PlotGPT()
-ai.inspect(df)
+```
+git clone  https://github.com/Praj-17/Streamlit-GPT.git
 ```
 
-And then prompt it to start plotting.
+If you do not have git, you can download the code in a zip file by clicking on the above green button.
 
-```python
-ai.ask("plot sepal width vs sepal length")
+Step:2 Install Python `3.10.0`
+
+If you are not able to download this specific version you can try with otehr version between `3.8` and `3.12` Or simpli use `conda` to get the desired version
+
+Step:3 Install Necessary Libraries
+
+Run the following command to install all the libraries
+
+```
+pip install -r requirements.txt
 ```
 
+Step: 4 Setup the `.env` file
 
-PlotGPT will remember previous prompts (up to a certain point), so you can build off of previous plots, mimicking iterative explorate data analysis.
+Checkout the `example.env` file. Replace the necessary parameters such as `OPENAI_API_KEY` to your own key
 
-```python
-ai.ask("now colored it by specied")
+Step:4 Run the streamlit Dashboard
+
+```
+streamlit run main.py
 ```
 
+## Folder Structure Explaination
 
-By default, PlotGPT will return the plotting code. You can turn it off by setting the `show_code` flag.
-```python
-ai = PlotGPT(show_code=False)
+### 📂src
+The `src` folder contains all the necessary codes
+
+### 📂modules
+The `modules` folder has the important file called `plotgpt.py` which actually implements the plotgpt class from the following repository 
+
 ```
-> However, it is this author's recommendation to leave this setting on be able to sanity check the plots.
-
-
-# Questions
-
-## Should this completely replace my data analysis?
-
-Probably not. Since this is an LLM, it's definitely not perfect. I'm more envisioning this as empowering initial discovery, where we use the AI to create a series of initial exploratory visualizations, and then have the human take over once you want to go deeper / more nuanced.
+https://github.com/stphnma/plotgpt
+```
