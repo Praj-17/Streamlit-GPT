@@ -1,0 +1,8 @@
+scikit-learn
+pandas
+openai
+matplotlib
+jupyterlab
+seaborn
+langchain
+numpy
